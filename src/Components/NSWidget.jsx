@@ -42,7 +42,7 @@ const NSWidget = () => {
 
     const renderSingleStation = () => {
         if (stations.length === 0) return <p>No stations available</p>;
-        const station = stations.find(station => station.namen.lang === 'Utrecht CS') || stations[0];
+        const station = stations.find(station => station.namen.lang === 'Utrecht CS') || stations[1];
 
         return (
             <div className="widget-ut" key={station.UICCode}>

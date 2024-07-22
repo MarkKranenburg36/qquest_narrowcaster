@@ -5,10 +5,10 @@ const NS_KEY = 'c9af8962e10e46bc92f8e98b501a3894';
 export default function handler(req, res) {
   
     // Extract query parameters from the request
-    const { stationID } = req.query;
+    const { stationID, maxJourneys } = req.query;
   
     // Construct the target URL dynamically
-    const target = `https://gateway.apiportal.ns.nl/reisinformatie-api/api/v2/departures?uicCode=${stationID}&maxJourneys=11`;
+    const target = `https://gateway.apiportal.ns.nl/reisinformatie-api/api/v2/departures?uicCode=${stationID}&maxJourneys=${maxJourneys}`;
   
     // Create the proxy middleware
     const proxy = createProxyMiddleware({
