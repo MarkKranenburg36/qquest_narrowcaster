@@ -4,7 +4,6 @@ import Slider from "react-slick";
 
 
 export const Carousel = () => {
-    const numbers = [1,2,3];
 
     const settings = {
         dots: false,
@@ -12,16 +11,15 @@ export const Carousel = () => {
         arrows: false,
         speed: 2000,
         autoplay: true,
-        autoplaySpeed: 10000
+        autoplaySpeed: 5000
     }
 
     return (
         <div className="widget carousel">
             <h1>Carousel</h1>
             <Slider {...settings}>
-                {numbers.map((item) => (
-                    <p>{item}</p>
-                ))}
+                {<p>1</p>}
+                {<p>2</p>}
             </Slider>
         </div>
     )

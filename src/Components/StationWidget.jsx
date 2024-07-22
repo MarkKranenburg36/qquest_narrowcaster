@@ -9,8 +9,7 @@ export default function StationWidget({ stationID }) {
     let listOfTrains = data ? data.payload.departures.slice() : [];
     if (listOfTrains.length > 0) listOfTrains.pop();
 
-    console.log(stationID)
-
+    
     return (
         <div>
             {listOfTrains ? (
