@@ -68,7 +68,14 @@ const NSWidget = () => {
             {error ? (
                 <p>{error}</p>
             ) : (
-                <Carousel>
+                <Carousel
+            autoPlay
+            infiniteLoop
+            showThumbs={false}
+            showStatus={false}
+            interval={10000}
+            transitionTime={1000}
+        >
                     <div>
                         {renderStations(stations[0])}
                     </div>
