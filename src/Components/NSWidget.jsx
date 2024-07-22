@@ -25,6 +25,7 @@ const NSWidget = () => {
     }, []);
 
     const renderStations = (station) => (
+        station &&
             <div className="widget-ut" key={station.UICCode}>
                 <p className="stationHeader">
                     <img src={NsLogo} className="ns-logo" alt="NS Logo" />
