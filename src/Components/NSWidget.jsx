@@ -10,15 +10,6 @@ const NSWidget = () => {
     const [stations, setStations] = useState([]);
     const [error, setError] = useState(null);
 
-    const settings = {
-        dots: false,
-        Infinite: true,
-        arrows: false,
-        speed: 2000,
-        autoplay: true,
-        autoplaySpeed: 10000
-    }
-
     useEffect(() => {
         const fetchStations = async () => {
             try {
