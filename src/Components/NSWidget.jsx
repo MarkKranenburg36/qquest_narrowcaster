@@ -26,19 +26,19 @@ const NSWidget = () => {
 
     const renderStations = (station) => (
         station &&
-            <div className="widget-ut" key={station.UICCode}>
-                <p className="stationHeader">
-                    <img src={NsLogo} className="ns-logo" alt="NS Logo" />
-                    {station.namen.lang}
-                </p>
-                <div className="NSspacing bg-yellow-dark">
-                    <p>Tijd</p>
-                    <p>Bestemming</p>
-                    <p>Trein</p>
-                    <p className="platformHeader">Perron</p>
-                </div>
-                <StationWidget stationID={station.UICCode} />
+        <div className="bg-yellow-light" key={station.UICCode}>
+            <p className="stationHeader">
+                <img src={NsLogo} className="ns-logo" alt="NS Logo" />
+                {station.namen.lang}
+            </p>
+            <div className="NSspacing bg-yellow-dark">
+                <p>Tijd</p>
+                <p>Bestemming</p>
+                <p>Trein</p>
+                <p className="platformHeader">Perron</p>
             </div>
+            <StationWidget stationID={station.UICCode} />
+        </div>
     );
 
     // const renderSingleStation = () => {
@@ -64,18 +64,21 @@ const NSWidget = () => {
     // };
 
     return (
-        <div className="stations widget bg-yellow-light">
+        <>
             {error ? (
                 <p>{error}</p>
             ) : (
                 <Carousel
-            autoPlay
-            infiniteLoop
-            showThumbs={false}
-            showStatus={false}
-            interval={10000}
-            transitionTime={1000}
-        >
+                    className="stations widget bg-yellow-light"
+                    autoPlay
+                    infiniteLoop
+                    showThumbs={false}
+                    showStatus={false}
+                    showArrows={false}
+                    showIndicators={false}
+                    interval={10000}
+                    transitionTime={1000}
+                >
                     <div>
                         {renderStations(stations[0])}
                     </div>
@@ -84,7 +87,7 @@ const NSWidget = () => {
                     </div>
                 </Carousel>
             )}
-        </div>
+        </>
     );
 };
 

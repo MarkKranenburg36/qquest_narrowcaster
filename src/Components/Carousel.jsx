@@ -15,7 +15,7 @@ export const Carousel = () => {
     }
 
     return (
-        <div className="widget carousel">
+        <div className="widget middelCarousel">
             <h1>Carousel</h1>
             <Slider {...settings}>
                 {<p>1</p>}

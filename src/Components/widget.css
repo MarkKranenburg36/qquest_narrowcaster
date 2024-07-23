@@ -57,7 +57,7 @@
     align-items: center;
 }
 
-.carousel {
+.middelCarousel {
     grid-row: 1 / 4;
     background-color: var(--Qquest-blue);
     color: white;
