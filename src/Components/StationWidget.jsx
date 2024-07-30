@@ -46,7 +46,7 @@ export default function StationWidget({ stationID }) {
         <div className='departuresList'>
             {(listOfTrains && futureTrains) ? (
                 futureTrains.map((departure, index) => (
-                    <div className={`utrechtCSTrainDataContainer ${index % 2 === 0 ? 'bg-yellow-light' : 'bg-yellow-dark'}`} style={index >= 8 ? { display: 'none' } : { display: "grid" }} key={departure.UICCode}>
+                    <div className={`utrechtCSTrainDataContainer ${index % 2 === 0 ? 'bg-yellow-light' : 'bg-yellow-dark'}`} style={index >= 7 ? { display: 'none' } : { display: "grid" }} key={departure.UICCode}>
                         <p className='time'>{departure.actualDateTime.split('T')[1].split(':').slice(0, 2).join(':')}</p>
                         <div>
                             <p className='destination'>{departure.direction}</p>

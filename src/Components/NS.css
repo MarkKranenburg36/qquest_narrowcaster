@@ -8,8 +8,8 @@
 
 .time {
     grid-row: 1 / 3;
-    margin-top: 0;
     font-size: 0.9rem;
+
 }
 
 .routeVia {
@@ -30,10 +30,10 @@
     grid-template-columns: 15% 1fr 10% 10%;
     grid-template-rows: 1fr;
     column-gap: 0.5rem;
-    padding: 0.5rem 2rem;
+    padding: 0.5rem 0.25rem;
     align-items: center;
     width: 100%;
-    height: 92px;
+    height: 74px;
 }
 
 .platform {
@@ -60,9 +60,10 @@
 }
 
 .stations {
-    width: 30%;
+    width: 35%;
     grid-column: 3 / 4;
     grid-row: 2 / 4;
+    padding-right: 5px;
 }
 .station-container{
     height: 100%;
@@ -98,7 +99,7 @@
     display: grid;
     grid-template: 1fr / 15% 1fr 10% 10%;
     gap: 0.5rem;
-    padding: 0 2rem;
+    padding: 0 0.25rem;
 }
 
 .infoCarousel{
