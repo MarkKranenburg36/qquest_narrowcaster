@@ -8,8 +8,8 @@ const WeatherMapWidget = ({className}) => {
     useEffect(() => {
         const setSizeIframe = () => {
             if (weatherMapWidgetRef.current) {
-                const { clientWidth, clientHeight } = weatherMapWidgetRef.current;
-                const src = `https://image.buienradar.nl/2.0/image/single/RadarMapRainNL?height=${clientHeight}&width=${clientWidth}&renderBackground=True&renderBranding=False&renderText=True`;
+                // const { clientWidth, clientHeight } = weatherMapWidgetRef.current;
+                const src = `https://image.buienradar.nl/2.0/image/single/RadarMapRainNL?height=200&width=200&renderBackground=True&renderBranding=False&renderText=True`;
                 setWeatherMapSrc(src);
             }
         };

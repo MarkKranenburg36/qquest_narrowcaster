@@ -1,14 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
 import { getTravelInfo } from '../API-requests/NS-API';
 import './NS.css';
-import { FaWalking } from "react-icons/fa";
+import { Carousel } from 'react-responsive-carousel';
+
 
 export default function StationWidget({ stationID }) {
     const url = `/api/departures?stationID=${stationID}&maxJourneys=40`
     const { data, error, loading } = useQuery({ queryKey: ['departureInfo', stationID], queryFn: async () => await getTravelInfo(url), staleTime: 0, cacheTime: 60 * 1000, refetchInterval: 60 * 1000 },)
 
     const DISTANCES = {
-        UC : 13,
+        UC: 13,
         UVR: 8
     }
 
@@ -35,27 +36,48 @@ export default function StationWidget({ stationID }) {
 
     let futureTrains;
 
-    if (stationID == 8400621){
+    if (stationID == 8400621) {
         futureTrains = futureDepartures(listOfTrains, DISTANCES.UC)
     } else {
         futureTrains = futureDepartures(listOfTrains, DISTANCES.UVR)
     }
 
     return (
-        <div>
+        <div className='departuresList'>
             {(listOfTrains && futureTrains) ? (
                 futureTrains.map((departure, index) => (
                     <div className={`utrechtCSTrainDataContainer ${index % 2 === 0 ? 'bg-yellow-light' : 'bg-yellow-dark'}`} style={index >= 8 ? { display: 'none' } : { display: "grid" }} key={departure.UICCode}>
                         <p className='time'>{departure.actualDateTime.split('T')[1].split(':').slice(0, 2).join(':')}</p>
-                        <p className='destination'>{departure.direction}</p>
-                        {departure.routeStations.length > 0 ?
-                            <div className='routeVia'> 
-                                <p>Via {departure.routeStations.map(routeStation => routeStation.mediumName).join(', ')}</p>
-                                {departure.messages.length > 0 && departure.messages.map(message => <p>* {message.message}</p>)}
-                                
-                            </div> : (
-                                <p className='routeVia'>No route available</p>
-                            )}
+                        <div>
+                            <p className='destination'>{departure.direction}</p>
+                            {departure.messages.length > 0 ?
+                            <div className='infoTab'>
+                                <Carousel
+                                className='infoCarousel'
+                                autoPlay
+                                infiniteLoop
+                                showThumbs={false}
+                                showStatus={false}
+                                showArrows={false}
+                                showIndicators={false}
+                                interval={6000}
+                                transitionTime={1000}>
+                                {departure.routeStations.length > 0 ?
+                                    <p className='routeVia'>{departure.routeStations.map(routeStation => routeStation.mediumName).join(', ')}</p>
+                                    : (
+                                        <p className='routeVia'>No route available</p>
+                                    )}
+                                {departure.messages.length > 0 && departure.messages.map((message, index) => <p key= {index} className='meldingen'>* {message.message}</p>)}
+                                </Carousel>
+                            </div> :
+                            <div className='infoTab'>
+                               {departure.routeStations.length > 0 ?
+                                    <p className='routeVia'>{departure.routeStations.map(routeStation => routeStation.mediumName).join(', ')}</p>
+                                    : (
+                                        <p className='routeVia'>No route available</p>
+                                    )} 
+                            </div>}
+                        </div>
                         <p className='platform'>{departure.actualTrack}</p>
                         <p className='train-product'>{departure.product.categoryCode}</p>
                     </div>

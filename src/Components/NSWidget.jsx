@@ -5,6 +5,7 @@ import NsLogo from './../../public/assets/Images/NS-Logo.png';
 import './NS.css';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
+import { FaWalking } from "react-icons/fa";
 
 const NSWidget = () => {
     const [stations, setStations] = useState([]);
@@ -22,15 +23,21 @@ const NSWidget = () => {
         };
         fetchStations();
         console.log(stations);
-    }, []);
+    }, [stations]);
 
     const renderStations = (station) => (
         station &&
-        <div className="bg-yellow-light" key={station.UICCode}>
-            <p className="stationHeader">
-                <img src={NsLogo} className="ns-logo" alt="NS Logo" />
-                {station.namen.lang}
-            </p>
+        <div className="station-container" key={station.UICCode}>
+            <div className="stationHeader">
+                <div className="ns-logo">
+                <img src={NsLogo}  alt="NS Logo" />
+                </div>
+                <p>{station.namen.lang}</p>
+                <div className="walking">
+                {station.UICCode == 8400621 ? <p>13min</p>: <p>8min</p>}
+                <FaWalking size={20}/>
+                </div>
+            </div>
             <div className="NSspacing bg-yellow-dark">
                 <p>Tijd</p>
                 <p>Bestemming</p>
@@ -41,27 +48,6 @@ const NSWidget = () => {
         </div>
     );
 
-    // const renderSingleStation = () => {
-    //     if (stations.length === 0) return <p>No stations available</p>;
-    //     const station = stations.find(station => station.namen.lang === 'Utrecht CS') || stations[0];
-
-    //     return (
-    //         <div className="widget-ut" key={station.UICCode}>
-
-    //             <p className="stationHeader">
-    //                 <img src={NsLogo} className="ns-logo" alt="NS Logo" />
-    //                 {station.namen.lang}
-    //             </p>
-    //             <div className="NSspacing bg-yellow-dark">
-    //                 <p>Tijd</p>
-    //                 <p>Bestemming</p>
-    //                 <p>Trein</p>
-    //                 <p className="platformHeader">Perron</p>
-    //             </div>
-    //             <StationWidget stationID={station.UICCode} />
-    //         </div>
-    //     );
-    // };
 
     return (
         <>
@@ -69,14 +55,14 @@ const NSWidget = () => {
                 <p>{error}</p>
             ) : (
                 <Carousel
-                    className="stations widget bg-yellow-light"
+                    className="stations"
                     autoPlay
                     infiniteLoop
                     showThumbs={false}
                     showStatus={false}
                     showArrows={false}
                     showIndicators={false}
-                    interval={10000}
+                    interval={12000}
                     transitionTime={1000}
                 >
                     <div>

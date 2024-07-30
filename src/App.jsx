@@ -21,12 +21,14 @@ function App() {
       <Greeting />
       <Logo />
       <div className="main">
+        <div className='weathers'>
         <CurrentWeather />
         <WeatherForcast />
+        </div>
         <QueryClientProvider client={queryClient}>
-          <WeatherMapWidget
+          {/* <WeatherMapWidget
             className={'widget weatherMapWidget'}
-          />
+          /> */}
           <Carousel />
           <NSWidget />
         </QueryClientProvider>
