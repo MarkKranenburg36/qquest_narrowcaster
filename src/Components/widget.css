@@ -40,10 +40,6 @@
 
 }
 
-#weatherMap {
-    aspect-ratio: 3 / 2;
-    /* height: calc((80vh - 4rem)/2); */
-}
 
 .forcastWidget {
     grid-column: 1 / 2;
@@ -56,18 +52,46 @@
 .forcastOne,
 .forcastTwo,
 .forcastThree {
+    position: relative;
     background-color: white;
-    border-radius: 2rem;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-
+.forcastWidget p{
+    font-size: 12px;
+}
 .middelCarousel {
     /* grid-row: 1 / 4; */
     background-color: var(--Qquest-blue);
     color: white;
     width: 35%;
     /* max-height: calc(80vh - 4.75rem); */
+}
+
+.facts{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.fact{
+    max-height: 120px;
+    font-size: 12px;
+}
+
+.QR{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.intranet{
+    text-align: center;
+}
+
+.lift{
+    text-align: center;
 }

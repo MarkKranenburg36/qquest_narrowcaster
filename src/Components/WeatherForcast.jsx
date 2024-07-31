@@ -38,21 +38,21 @@ export const WeatherForcast = () => {
                     ...prevState,
                     hour: (currentHour + 1).toString() + ':00',
                     icon: forcastData.forecast.forecastday[0].hour[indexHourOne].condition.icon,
-                    temp: forcastData.forecast.forecastday[0].hour[indexHourOne].temp_c.toString() + '°C'
+                    temp: Math.floor(forcastData.forecast.forecastday[0].hour[indexHourOne].temp_c).toString() + '°C'
                 }));
                 const indexHourTwo = (currentHour + 2);
                 setForcastTwo((prevState) => ({
                     ...prevState,
                     hour: (currentHour + 2).toString() + ':00',
                     icon: forcastData.forecast.forecastday[0].hour[indexHourTwo].condition.icon,
-                    temp: forcastData.forecast.forecastday[0].hour[indexHourTwo].temp_c.toString() + '°C'
+                    temp: Math.floor(forcastData.forecast.forecastday[0].hour[indexHourTwo].temp_c).toString() + '°C'
                 }));
                 const indexHourThree = (currentHour + 3);
                 setForcastThree((prevState) => ({
                     ...prevState,
                     hour: (currentHour + 3).toString() + ':00',
                     icon: forcastData.forecast.forecastday[0].hour[indexHourThree].condition.icon,
-                    temp: forcastData.forecast.forecastday[0].hour[indexHourThree].temp_c.toString() + '°C'
+                    temp: Math.floor(forcastData.forecast.forecastday[0].hour[indexHourThree].temp_c).toString() + '°C'
                 }));
             }
         };

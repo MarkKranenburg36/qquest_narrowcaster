@@ -18,8 +18,9 @@
     height: 5rem;
     margin-right: 2rem;
 }
-.weathers{
+.leftContainer{
     width: 30%;
+    height: 60vh;
 }
 .logoContainer {
     display: flex;

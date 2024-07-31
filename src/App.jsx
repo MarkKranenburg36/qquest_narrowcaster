@@ -11,6 +11,7 @@ import {
 import { CurrentWeather } from './Components/CurrentWeather'
 import { WeatherForcast } from './Components/WeatherForcast'
 import { Carousel } from './Components/Carousel'
+import FactsWidget from './Components/FactsWidget'
 
 
 function App() {
@@ -21,10 +22,12 @@ function App() {
       <Greeting />
       <Logo />
       <div className="main">
-        <div className='weathers'>
+        <div className='leftContainer'>
         <CurrentWeather />
         <WeatherForcast />
+        <FactsWidget />
         </div>
+        
         <QueryClientProvider client={queryClient}>
           {/* <WeatherMapWidget
             className={'widget weatherMapWidget'}
