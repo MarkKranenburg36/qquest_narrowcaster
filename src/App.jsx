@@ -27,11 +27,7 @@ function App() {
         <WeatherForcast />
         <FactsWidget />
         </div>
-        
         <QueryClientProvider client={queryClient}>
-          {/* <WeatherMapWidget
-            className={'widget weatherMapWidget'}
-          /> */}
           <Carousel />
           <NSWidget />
         </QueryClientProvider>

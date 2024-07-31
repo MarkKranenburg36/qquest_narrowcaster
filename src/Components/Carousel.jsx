@@ -1,6 +1,8 @@
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import agenda from '/assets/Images/agenda.png'
+import post from '/assets/Images/post.png'
 
 
 export const Carousel = () => {
@@ -11,15 +13,15 @@ export const Carousel = () => {
         arrows: false,
         speed: 2000,
         autoplay: true,
-        autoplaySpeed: 5000
+        autoplaySpeed: 10000
     }
 
     return (
         <div className="widget middelCarousel">
-            <h1>Carousel</h1>
+            <h1>Wat content</h1>
             <Slider {...settings}>
-                {<p>1</p>}
-                {<p>2</p>}
+                <img src={agenda}/>
+                <img height={550} src={post}/>                
             </Slider>
         </div>
     )
