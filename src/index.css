@@ -19,7 +19,7 @@ body {
     --Qquest-blue: rgba(20, 32, 56, 1);
     color: rgba(20, 32, 56, 1);
     background-color: var(--Qquest-blue);
-    display: grid;
+    /* display: grid; */
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 10fr;
     row-gap: 0.5rem;
@@ -27,4 +27,13 @@ body {
     height: 100vh;
     justify-content: center;
     align-items: center;
+}
+
+.upper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.upper h1{
+    font-size: 2rem;
 }

@@ -1,4 +1,7 @@
+import { useEffect, useState } from "react";
+
 const Greeting = () => {
+    
     const getGreeting = () => {
         let greeting = (
             getTimeOfDay() == 'morning' ?
@@ -19,9 +22,9 @@ const Greeting = () => {
     }
 
     return (
-        <>
+        <div style={{display: 'flex', justifyContent: 'space-between'}}>
             <h1 id="greeting">{getGreeting()}</h1>
-        </>
+        </div>
     )
 }
 
