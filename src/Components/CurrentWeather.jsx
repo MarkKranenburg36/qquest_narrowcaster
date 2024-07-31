@@ -53,14 +53,11 @@ export const CurrentWeather = () => {
                 <div className="date">
                 <p id="dayOfWeekCurWeather">{currentDay}</p>
                 <img id="iconCurWeather" src={weatherIcon} alt="icon of current weather" />
-                
                 </div>
                 <div className="date">
                 <p id="dateCurWeather">{currentDate}</p>
                 <p id="tempCurWeather">{currentTemp}</p>
                 </div>
-                
-                
             </div>
             <WeatherMapWidget  className={'weatherMapWidget'}/>
         </div>

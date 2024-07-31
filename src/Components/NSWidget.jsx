@@ -22,8 +22,7 @@ const NSWidget = () => {
             }
         };
         fetchStations();
-        console.log(stations);
-    }, [stations]);
+    }, []);
 
     const renderStations = (station) => (
         station &&

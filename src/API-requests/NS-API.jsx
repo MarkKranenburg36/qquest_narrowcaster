@@ -11,7 +11,6 @@ export async function getNearByStations () {
             'Ocp-Apim-Subscription-Key': `${NS_KEY}`,}
     })
     if(response.ok){
-        console.log(response.ok)
         return response.json();
     }
     throw new Error('Failed to fetch NearBy Stations API');
