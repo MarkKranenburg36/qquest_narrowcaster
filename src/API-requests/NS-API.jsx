@@ -10,6 +10,7 @@ export async function getNearByStations () {
             'Cache-Control': 'no-cache',
             'Ocp-Apim-Subscription-Key': `${NS_KEY}`,}
     })
+
     if(response.ok){
         return response.json();
     }

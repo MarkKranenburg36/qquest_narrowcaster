@@ -1,14 +1,17 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import agenda from '/assets/Images/agenda.png'
 import post from '/assets/Images/post.png'
 import { useEffect } from "react";
 import { useState } from "react";
+import { getNews } from "../API-requests/news-API";
+
 
 
 export const Carousel = () => {
     const [newsTitle, setNewsTitle] = useState('');
+
+    const [ newsTest, setNewsTest ] = useState('');
 
     useEffect(() => {
         // news API key: 7d1ff2f5cbf24cf0a4dddb07cd090e3d
@@ -23,12 +26,29 @@ export const Carousel = () => {
             .then(data => {
                 if (data.articles && data.articles.length > 0) {
                     setNewsTitle(data.articles[0].title);
+                    // console.log(data);
                 }
-                console.log(data.articles);
+                // console.log(data.articles);
             })
             .catch(function (error) {
                 console.error('Something went wrong fetching newsAPI', error);
             });
+
+
+
+        // vbUGjupVjZydXbadmM4XM-RcxkEsazHVLWAxiNDcpN-FeN6M
+
+        const fetchNews = async () => {
+            try {
+                const news = await getNews();
+                setNewsTest(news);
+                console.log(newsTest);
+            } catch (error) {
+                console.error('Error fetching news:', error);
+            }
+        };
+        fetchNews();
+
     }, []);
 
     const settings = {
@@ -38,7 +58,7 @@ export const Carousel = () => {
         speed: 2000,
         autoplay: true,
         // autoplaySpeed: 60 * 1000 * 5
-        autoplaySpeed: 100
+        autoplaySpeed: 200
     }
 
     return (
