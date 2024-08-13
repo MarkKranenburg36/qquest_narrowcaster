@@ -2,7 +2,7 @@ const CURRENT_KEY = 'vbUGjupVjZydXbadmM4XM-RcxkEsazHVLWAxiNDcpN-FeN6M';
 const newsUrl =  '/api/news?';
 
 export async function getNews() {
-    const response = await fetch(`${newsUrl}${CURRENT_KEY}`, {
+    const response = await fetch(`${newsUrl}`, {
         method: 'GET',
         
         // Request headers
