@@ -1,14 +1,14 @@
 const CURRENT_KEY = 'vbUGjupVjZydXbadmM4XM-RcxkEsazHVLWAxiNDcpN-FeN6M';
-const newsUrl =  '/api/news';
+const newsUrl =  '/api/news?';
 
 export async function getNews() {
-    const response = await fetch(`${newsUrl}`, {
+    const response = await fetch(`${newsUrl}${CURRENT_KEY}`, {
         method: 'GET',
         
         // Request headers
         // headers: {
         //     'Cache-Control': 'no-cache',
-        //     'Ocp-Apim-Subscription-Key': `${CURRENT_KEY}`,}
+        //     'apikey': `${CURRENT_KEY}`,}
     })
     console.log(response);
     if(response.ok){
