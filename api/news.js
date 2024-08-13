@@ -4,7 +4,7 @@ const CURRENT_KEY = 'vbUGjupVjZydXbadmM4XM-RcxkEsazHVLWAxiNDcpN-FeN6M';
 
 export default function handler(req, res) {
   const proxy = createProxyMiddleware({
-    target: `https://api.currentsapi.services/v1/latest-news?apikey=${CURRENT_KEY}`,
+    target: `https://api.currentsapi.services/v1/latest-news?apiKey=${CURRENT_KEY}`,
     changeOrigin: true,
     pathRewrite: {
       '^/api': '',

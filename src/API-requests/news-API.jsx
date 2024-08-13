@@ -6,9 +6,9 @@ export async function getNews() {
         method: 'GET',
         
         // Request headers
-        headers: {
-            'Cache-Control': 'no-cache',
-            'Ocp-Apim-Subscription-Key': `${CURRENT_KEY}`,}
+        // headers: {
+        //     'Cache-Control': 'no-cache',
+        //     'Ocp-Apim-Subscription-Key': `${CURRENT_KEY}`,}
     })
     console.log(response);
     if(response.ok){
