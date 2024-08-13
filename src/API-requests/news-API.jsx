@@ -1,14 +1,15 @@
 const CURRENT_KEY = 'vbUGjupVjZydXbadmM4XM-RcxkEsazHVLWAxiNDcpN-FeN6M';
-const newsUrl =  '/api/news?';
+const newsUrl =  '/api/news';
 
 export async function getNews() {
     const response = await fetch(`${newsUrl}`, {
         method: 'GET',
         
         // Request headers
-        // headers: {
-        //     'Cache-Control': 'no-cache',
-        //     'apikey': `${CURRENT_KEY}`,}
+        headers: {
+            'Cache-Control': 'no-cache',
+            'Authorization': `${CURRENT_KEY}`
+        }
     })
     console.log(response);
     if(response.ok){
