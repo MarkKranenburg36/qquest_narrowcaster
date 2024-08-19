@@ -5,6 +5,9 @@ import post from '/assets/Images/post.png'
 import { useEffect } from "react";
 import { useState } from "react";
 import { getNews } from "../API-requests/news-API";
+import dummyContent1 from '/assets/Images/dummyContent1.png';
+import dummyContent2 from '/assets/Images/dummyContent2.png';
+import dummyContent3 from '/assets/Images/dummyContent3.png';
 
 
 
@@ -62,12 +65,11 @@ export const Carousel = () => {
 
     return (
         <div className="widget middelCarousel">
-            <h1>Wat content</h1>
+            <h1>Uitgelicht</h1>
             <Slider {...settings}>
-                <img height={550} src={post} />
-                <div>
-                    <h1>{newsTitle}</h1>
-                </div>
+                <img height={550} src={dummyContent1} />
+                <img height={550} src={dummyContent2} />
+                <img height={550} src={dummyContent3} />
             </Slider>
         </div>
     )
