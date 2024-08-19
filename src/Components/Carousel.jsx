@@ -57,8 +57,7 @@ export const Carousel = () => {
         arrows: false,
         speed: 2000,
         autoplay: true,
-        // autoplaySpeed: 60 * 1000 * 5
-        autoplaySpeed: 200
+        autoplaySpeed: 60 * 1000 * 5
     }
 
     return (
