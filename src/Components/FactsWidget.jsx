@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { factsApi } from "../API-requests/facts"
-import liftQr from "./../../public/assets/Images/lift-QR.png";
-import intranet from "./../../public/assets/Images/intranet-qr.png";
+import liftQr from "/assets/Images/lift-QR.png";
+import intranet from "/assets/Images/intranet-qr.png";
 import "./widget.css"
 
 export default function FactsWidget() {
@@ -27,23 +27,22 @@ export default function FactsWidget() {
     return (
         <div className="facts widget">
             <div className="fact">
-                {/* <p>Here comes the fact</p> */}
-                {(facts && facts.length > 0) && 
-                <div>
-                    <p>Fun fact: </p>
-                    <p>{facts[0].fact}</p>
-                </div>}
+                {(facts && facts.length > 0) &&
+                    <div>
+                        <p>Fun fact: </p>
+                        <p>{facts[0].fact}</p>
+                    </div>}
             </div>
             <div className="QR">
                 <div className="intranet">
-                <img src={intranet} width={100} height={100} alt="intranet QR"/>
-                <p>Qquest Intranet</p>
+                    <img src={intranet} width={100} height={100} alt="intranet QR" />
+                    <p>Qquest Intranet</p>
                 </div>
                 <div className="lift">
-                <img src={liftQr} width={100} height={100} alt="lift QR" />
-                <p>Lift</p>
+                    <img src={liftQr} width={100} height={100} alt="lift QR" />
+                    <p>Lift</p>
                 </div>
-                
+
             </div>
         </div>
     )

@@ -1,5 +1,7 @@
-export const fetchForcastWeatherData = async () => {
-    const response = await fetch('https://api.weatherapi.com/v1/forecast.json?key=fe8cc7ce1859439baab125140241806&q=Utrecht&days=3');
+const API_KEY = import.meta.env.VITE_FORECAST_API_KEY
+
+export const fetchForcastWeatherData = async () => {    
+    const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=Utrecht&days=3`);
     if (!response.ok) {
         throw new Error('Network response was not ok');
     }

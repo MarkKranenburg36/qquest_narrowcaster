@@ -1,6 +1,5 @@
 import './App.css'
 import './Components/widget.css'
-import WeatherMapWidget from './Components/WeatherMapWidget'
 import NSWidget from './Components/NSWidget'
 import Greeting from './Components/Greeting'
 import { Logo } from './Components/Logo'
@@ -14,35 +13,33 @@ import { Carousel } from './Components/Carousel'
 import FactsWidget from './Components/FactsWidget'
 import { useEffect, useState } from "react";
 
-
-
 function App() {
   const queryClient = new QueryClient();
-  const [time,setTime] = useState()
+  const [time, setTime] = useState()
 
-    useEffect (() =>{
-        const intervalTime = setInterval(() => {
+  useEffect(() => {
+    const intervalTime = setInterval(() => {
 
-            const dateObject = new Date()
-      
-            const hour = dateObject.getHours()
-            const minute = dateObject.getMinutes()
-      
-            const currentTime = hour + ':' + minute
-            
-            setTime(currentTime)
-          }, 1000)
+      const dateObject = new Date()
 
-        return ()=>{
-            clearInterval(intervalTime)
-        }
-      
-    })
+      const hour = dateObject.getHours()
+      const minute = dateObject.getMinutes()
+
+      const currentTime = hour + ':' + minute
+
+      setTime(currentTime)
+    }, 1000)
+
+    return () => {
+      clearInterval(intervalTime)
+    }
+  })
+
   return (
     <>
       <div className='upper'>
         <Greeting />
-        <h1 style={{color: 'white'}}>{time}</h1>
+        <h1 style={{ color: 'white' }}>{time}</h1>
         <Logo />
       </div>
       <div className="main">

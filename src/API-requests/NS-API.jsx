@@ -1,10 +1,9 @@
-const NS_KEY = 'c9af8962e10e46bc92f8e98b501a3894';
+const NS_KEY = import.meta.env.VITE_NS_KEY;
 const stationsUrl =  '/api/stations';
 
 export async function getNearByStations () {
     const response = await fetch(`${stationsUrl}`, {
-        method: 'GET',
-        
+        method: 'GET',  
         // Request headers
         headers: {
             'Cache-Control': 'no-cache',

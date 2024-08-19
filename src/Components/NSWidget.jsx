@@ -29,12 +29,12 @@ const NSWidget = () => {
         <div className="station-container" key={station.UICCode}>
             <div className="stationHeader">
                 <div className="ns-logo">
-                <img src={NsLogo}  alt="NS Logo" />
+                    <img src={NsLogo} alt="NS Logo" />
                 </div>
                 <p>{station.namen.lang}</p>
                 <div className="walking">
-                {station.UICCode == 8400621 ? <p>13min</p>: <p>8min</p>}
-                <FaWalking size={20}/>
+                    {station.UICCode == 8400621 ? <p>13min</p> : <p>8min</p>}
+                    <FaWalking size={20} />
                 </div>
             </div>
             <div className="NSspacing bg-yellow-dark">
@@ -46,7 +46,6 @@ const NSWidget = () => {
             <StationWidget stationID={station.UICCode} />
         </div>
     );
-
 
     return (
         <>

@@ -25,9 +25,6 @@
     width: 80%;
 }
 #dayOfWeekCurWeather {
-    /* display: flex;
-    align-items: flex-end; */
-    /* margin-bottom: 0; */
     font-size: 1.5rem;
     width: 120px;
 }
@@ -37,27 +34,12 @@
     width: 120px;
     text-align: center;
     font-weight: 600;
-    /* display: flex;
-    align-items: flex-start;
-    margin-top: 0; */
 }
 
-
-
-#iconCurWeather {
-    /* width: 64px; */
-    /* display: flex;
-    align-self: flex-end;
-    justify-self: flex-end;
-    transform: translate(1rem, 1rem); */
-}
 
 #tempCurWeather {
     font-family: 'Gotham-light';
     width: 64px;
     text-align: center;
     font-weight: 600;
-    /* margin-top: 0;
-    display: flex;
-    justify-self: flex-end; */
 }

@@ -4,10 +4,6 @@
     border-radius: 20px;
     background-color: white;
     display: flex;
-    /* grid-template-columns: 30% 40% 30%; */
-    /* grid-template-rows: 1fr 1fr 2fr; */
-    /* column-gap: 0.5rem;
-    row-gap: 1rem; */
     box-shadow: 0 3px 6px rgba(20, 32, 56, 0.15);
     height: 100%;
     width: 100%;

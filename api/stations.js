@@ -1,6 +1,8 @@
 import { createProxyMiddleware } from 'http-proxy-middleware';
+import dotenv from 'dotenv'
+dotenv.config()
 
-const NS_KEY = 'c9af8962e10e46bc92f8e98b501a3894';
+const NS_KEY = process.env.VITE_NS_KEY;
 
 export default function handler(req, res) {
   
