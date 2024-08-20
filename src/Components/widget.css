@@ -52,7 +52,7 @@
 }
 .middelCarousel {
     color: rgb(0, 0, 0);
-    width: 35%;
+    width: 37%;
 }
 
 .facts{
@@ -70,7 +70,7 @@
     margin-top: 0;
 }
 .QR{
-    padding-top:4px;
+    padding-top:8px;
     display: flex;
     align-items: center;
     justify-content: space-around;
