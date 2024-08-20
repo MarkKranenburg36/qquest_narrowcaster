@@ -66,9 +66,9 @@ export const Carousel = () => {
         <div className="widget middelCarousel">
             <h1>Uitgelicht</h1>
             <Slider {...settings}>
-                <img height={550} src={dummyContent1} />
-                <img height={550} src={dummyContent2} />
-                <img height={550} src={dummyContent3} />
+                <img height={500} src={dummyContent1} />
+                <img height={500} src={dummyContent2} />
+                <img height={500} src={dummyContent3} />
             </Slider>
         </div>
     )

@@ -59,7 +59,7 @@
 }
 
 .stations {
-    width: 40%;
+    width: 35%;
     grid-column: 3 / 4;
     grid-row: 2 / 4;
     padding-right: 5px;
