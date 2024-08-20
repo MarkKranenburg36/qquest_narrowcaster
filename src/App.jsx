@@ -23,8 +23,14 @@ function App() {
       const dateObject = new Date()
 
       const hour = dateObject.getHours()
-      const minute = dateObject.getMinutes()
+      let minute;
 
+      if(Number(dateObject.getMinutes()) >= 0 && Number(dateObject.getMinutes()) < 10){
+        minute = "0" + dateObject.getMinutes()
+      } else {
+        minute = dateObject.getMinutes()
+      }
+      
       const currentTime = hour + ':' + minute
 
       setTime(currentTime)
