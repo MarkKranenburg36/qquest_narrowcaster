@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 
 const WeatherMapWidget = ({className}) => {
@@ -7,22 +7,22 @@ const WeatherMapWidget = ({className}) => {
 
     useEffect(() => {
         const setSizeIframe = () => {
-            if (weatherMapWidgetRef.current) {
-                const { clientWidth, clientHeight } = weatherMapWidgetRef.current;
-                const src = `https://image.buienradar.nl/2.0/image/single/RadarMapRainNL?height=${clientHeight}&width=${clientWidth}&renderBackground=True&renderBranding=False&renderText=True`;
-                setWeatherMapSrc(src);
-            }
+          if (weatherMapWidgetRef.current) {
+            const src = `https://image.buienradar.nl/2.0/image/single/RadarMapRainNL?height=200&width=200&renderBackground=True&renderBranding=False&renderText=True&timestamp=${Date.now()}`;
+            setWeatherMapSrc(src);
+          }
         };
-
-        setSizeIframe();
-
-        window.addEventListener('resize', setSizeIframe);
-
-    }, []);
-
-   
-
     
+        setSizeIframe();
+    
+        const intervalId = setInterval(setSizeIframe, 2 * 60 * 1000);
+        window.addEventListener('resize', setSizeIframe);
+    
+        return () => {
+          clearInterval(intervalId);
+          window.removeEventListener('resize', setSizeIframe);
+        };
+      }, []);
 
     return (
         <div className={className}>

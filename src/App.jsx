@@ -1,6 +1,5 @@
 import './App.css'
 import './Components/widget.css'
-import WeatherMapWidget from './Components/WeatherMapWidget'
 import NSWidget from './Components/NSWidget'
 import Greeting from './Components/Greeting'
 import { Logo } from './Components/Logo'
@@ -11,22 +10,51 @@ import {
 import { CurrentWeather } from './Components/CurrentWeather'
 import { WeatherForcast } from './Components/WeatherForcast'
 import { Carousel } from './Components/Carousel'
-
+import FactsWidget from './Components/FactsWidget'
+import { useEffect, useState } from "react";
 
 function App() {
   const queryClient = new QueryClient();
+  const [time, setTime] = useState()
+
+  useEffect(() => {
+    const intervalTime = setInterval(() => {
+
+      const dateObject = new Date()
+
+      const hour = dateObject.getHours()
+      let minute;
+
+      if(Number(dateObject.getMinutes()) >= 0 && Number(dateObject.getMinutes()) < 10){
+        minute = "0" + dateObject.getMinutes()
+      } else {
+        minute = dateObject.getMinutes()
+      }
+      
+      const currentTime = hour + ':' + minute
+
+      setTime(currentTime)
+    }, 1000)
+
+    return () => {
+      clearInterval(intervalTime)
+    }
+  })
 
   return (
     <>
-      <Greeting />
-      <Logo />
+      <div className='upper'>
+        <Greeting />
+        <h1 style={{ color: 'white' }}>{time}</h1>
+        <Logo />
+      </div>
       <div className="main">
-        <CurrentWeather />
-        <WeatherForcast />
+        <div className='leftContainer'>
+          <CurrentWeather />
+          <WeatherForcast />
+          <FactsWidget />
+        </div>
         <QueryClientProvider client={queryClient}>
-          <WeatherMapWidget
-            className={'widget weatherMapWidget'}
-          />
           <Carousel />
           <NSWidget />
         </QueryClientProvider>
