@@ -1,0 +1,60 @@
+include:
+  - project: 'qquest/gitlab-ci-templates'
+    file: '/role-templates/include-all-role-templates.yml'
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "pipeline" 
+      variables:
+        INVENTORY: api-trigger-host.ini
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
+    - when: always
+
+variables:
+    APP_NAME: qquest-narrowcaster
+    IMAGE_TAG: latest
+    INVENTRORY: "host.ini"
+
+stages:  
+  - build  
+  - deploy_prod
+  - add-to-redirect
+
+build:
+    stage: build
+    image: docker:20
+    services:
+        - name: docker:20.10.23-dind
+          command: ["--tls=false"]
+
+    script:
+        - docker build -t $CI_REGISTRY/qquest/$CI_PROJECT_NAME/$APP_NAME:$IMAGE_TAG .
+        - docker login $CI_REGISTRY -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD
+        - docker push $CI_REGISTRY/qquest/$CI_PROJECT_NAME/$APP_NAME
+
+
+deploy_prod:
+  extends: .ansible-deploy-template
+  variables: 
+      IMAGE_TAG: latest
+  stage: deploy_prod
+  image: cytopia/ansible:latest-tools
+  before_script:
+    - !reference [.ansible-deploy-template, before_script]
+    - !reference [.clone_git, before_script]
+  script:
+    - ansible-playbook bingo-deploy/playbook.yml -i bingo-deploy/${INVENTORY} --vault-password-file .passfile --extra-vars "stage=prod CTRLQ_USER=$CTRLQ_USER_NAME CTRLQ_USER_BECOME_PASS=$CTRLQ_USER_PASSWORD"
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "pipeline" #Runt alleen via een API trigger call (wordt gebruikt in de main droplet)
+      when: on_success
+      allow_failure: false
+    - if: '$CI_PIPELINE_SOURCE != "pipeline" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+      when: on_success
+      allow_failure: false
+
+add-to-redirect-prod:
+  extends: .add-to-redirect-prod
+  stage: add-to-redirect
+  variables:
+        PROXY_SUBDIR: prod

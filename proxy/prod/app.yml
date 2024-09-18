@@ -1,0 +1,4 @@
+apps:
+  - app_name: qquest-narrowcaster
+    app_url: qquestlabs.nl/qquest-narrowcaster
+    app_display_url: /qquest-narrowcaster
