@@ -1,5 +1,5 @@
 const NS_KEY = import.meta.env.VITE_NS_KEY;
-const stationsUrl =  '/api/stations';
+const stationsUrl =  'https://qquest-narrowcaster.vercel.app/api/stations';
 
 export async function getNearByStations () {
     const response = await fetch(`${stationsUrl}`, {

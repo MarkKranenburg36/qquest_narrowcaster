@@ -4,7 +4,7 @@ import './NS.css';
 import { Carousel } from 'react-responsive-carousel';
 
 export default function StationWidget({ stationID }) {
-    const url = `/api/departures?stationID=${stationID}&maxJourneys=40`
+    const url = `https://qquest-narrowcaster.vercel.app/api/departures?stationID=${stationID}&maxJourneys=40`
     const { data, error, loading } = useQuery({ queryKey: ['departureInfo', stationID], queryFn: async () => await getTravelInfo(url), staleTime: 0, cacheTime: 60 * 1000, refetchInterval: 60 * 1000 },)
 
     const DISTANCES = {
