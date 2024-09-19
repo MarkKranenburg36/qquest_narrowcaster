@@ -1,4 +1,4 @@
-const API_KEY = window.env?.VITE_FORECAST_API_KEY
+const API_KEY = import.meta.env.VITE_FORECAST_API_KEY
 
 export const fetchForcastWeatherData = async () => {    
     const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=Utrecht&days=3`);
