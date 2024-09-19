@@ -1,4 +1,4 @@
-const NS_KEY = import.meta.env.VITE_NS_KEY;
+const NS_KEY = window.env?.VITE_NS_KEY;
 const stationsUrl =  '/api/stations';
 
 export async function getNearByStations () {
