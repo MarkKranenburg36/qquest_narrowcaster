@@ -20,7 +20,7 @@ export const Carousel = () => {
 
     return (
         <div className="widget middelCarousel">
-            <h1>Uitgelicht</h1>
+            <h1>Collega op de spotlight</h1>
             <Slider {...settings}>
                 {/* <Algemeen img={dummyContent1} titel="Collega 1 op de spotlight" info="Hoi ik ben vasilis. ben ik fjdkjfkdf"/>
                 <Algemeen img={dummyContent2} titel="Collega 2 op de spotlight" info="Hoi ik ben Guus. ben ik fjdkjfkdf"/>
