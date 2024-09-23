@@ -32,13 +32,13 @@ export const CurrentWeather = () => {
         const condition = weatherData.current.condition.text.toLowerCase();
 
         if (condition.includes('sunny') || condition.includes('clear')) {
-            return 'url(/assets/Images/sunny.jpg)';
+            return 'url(./assets/Images/sunny.jpg)';
         } else if (condition.includes('rain') || condition.includes('drizzle')) {
-            return 'url(/assets/Images/rainy.jpg)';
+            return 'url(./assets/Images/rainy.jpg)';
         } else if (condition.includes('snow')) {
-            return 'url(/assets/Images/snowy.jpg)';
+            return 'url(./assets/Images/snowy.jpg)';
         } else {
-            return 'url(/assets/Images/cloudy.jpg)';
+            return 'url(./assets/Images/cloudy.jpg)';
         }
     };
 

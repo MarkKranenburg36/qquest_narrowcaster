@@ -9,7 +9,7 @@ export default ({mode}) => {
       // setting a redirect proxy to avoid CORS policy block
       proxy: {
         '/api': {
-          target: 'https://qquest-narrowcaster.vercel.app/api/',
+          target: 'http://localhost:3000/',
           changeOrigin: true,
           rewrite: path => path.replace(/^\/api/, ''), // Removes /api prefix
           secure: true, 
@@ -20,6 +20,6 @@ export default ({mode}) => {
       },
     },
     plugins: [react()],
-    base: './',
+    base: '/qquest-narrowcaster/',
   }) 
 }
